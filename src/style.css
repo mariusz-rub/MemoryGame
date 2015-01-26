@@ -1,0 +1,61 @@
+#container {
+	display: table;
+}
+
+#containerHeader {
+	margin-bottom: 40px;
+	color: white;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+body {
+	/*background: url("img/new_york_night_gr.jpg");
+	background: url("img/new_york_city_at_night.png");*/
+	background-color: #261E36;
+	background-size: 100% 100%;
+	background-repeat: none;
+}
+ 
+.mainPanel {
+	margin-top: 20px;
+}
+
+.configurationPanel {
+	margin: 10px;
+	width: 300px;
+}
+
+.configItem {
+	padding: 10px;
+	text-align: left;
+}
+
+.cell {
+	display: table-cell;
+	background: #150916;
+	border-width: 1px;
+	border-color: #3d3d3d;
+	border-style: solid;
+}
+
+.selectedCell {
+	display: table-cell;
+	background: #FFF999;
+	border-width: 1px;
+	border-color: #3d3d3d;
+	border-style: solid;
+}
+
+.row {
+	display: table-row;
+}
+
+.success {
+	color: green;
+}
+
+.fail {
+	color: red;
+}
+
