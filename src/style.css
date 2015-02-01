@@ -24,6 +24,12 @@
 	font-size: 20px;
 }
 
+#startAgain {
+	width: 150px;
+	height: 40px;
+	font-size: 20px;
+}
+
 body {
 	/*background: url("img/new_york_night_gr.jpg");
 	background: url("img/new_york_city_at_night.png");*/
@@ -43,6 +49,10 @@ body {
 
 .startPanel {
 	margin-top: 150px;
+}
+
+.startAgainPanel {
+	margin-top: 50px;
 }
 
 .cell {

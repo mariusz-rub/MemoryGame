@@ -10,6 +10,7 @@ APP.level = function (levelNumber) {
 	var gridHeight = linearFunc(levelNumber, 1);
 	var selectCount = linearFunc(levelNumber, 0);
 	var finished = false;
+	var levelTimeout = null;
 
 	return {
 		getLevelNumber : function() { return levelNumber; },
@@ -23,11 +24,12 @@ APP.level = function (levelNumber) {
 			
 			var gridToSelect = APP.grid(gridWidth, gridHeight, function(point, isSelected) {
 				if(generatedGrid.isSelected(point) === false) {
+					clearTimeout(levelTimeout);
 					runOptions.onLevelFailed(self);
 				}
 
 				if(generatedGrid.isEqualTo(gridToSelect)) {
-					self.finish();
+					clearTimeout(levelTimeout);
 					runOptions.onLevelSuccess(self);
 				}
 			});
@@ -45,11 +47,9 @@ APP.level = function (levelNumber) {
 
 				APP.drawing.drawGrid(gridToSelect);
 
-				setTimeout(function() {
-					if(self.isFinished() === false) {
-						runOptions.onLevelFailed(self);
-					}
-				}, levelTimeoutSec * 1000);
+				levelTimeout = setTimeout(
+					function() { runOptions.onLevelFailed(self); }, 
+					levelTimeoutSec * 1000);
 
 			}, runOptions.gameOptions.MEMORY_TIME);
 		}

@@ -44,7 +44,8 @@ APP.levelFailed = function(finishedLevel) {
 	// show failed
 	// show summary with congratulation achived level and start again button
 	APP.stopTimer();
-	alert("fail");
+
+	$(".startAgainPanel").show();
 }
 
 APP.setLevel = function(levelNumber) {
@@ -67,6 +68,11 @@ APP.runLevel = function(levelNumber) {
 $(function(){
 	$("#start").click(function () {
 		$("#start").hide();
+		APP.runLevel(1);
+	});
+
+	$("#startAgain").click(function() {
+		$(".startAgainPanel").hide();
 		APP.runLevel(1);
 	});
 });
