@@ -66,6 +66,7 @@ APP.runLevel = function(levelNumber) {
 
 $(function(){
 	$("#start").click(function () {
+		$("#start").hide();
 		APP.runLevel(1);
 	});
 });

@@ -18,6 +18,12 @@
 	font-size: 20px;
 }
 
+#start {
+	width: 100px;
+	height: 40px;
+	font-size: 20px;
+}
+
 body {
 	/*background: url("img/new_york_night_gr.jpg");
 	background: url("img/new_york_city_at_night.png");*/
@@ -35,9 +41,8 @@ body {
 	width: 300px;
 }
 
-.configItem {
-	padding: 10px;
-	text-align: left;
+.startPanel {
+	margin-top: 150px;
 }
 
 .cell {
