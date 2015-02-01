@@ -4,9 +4,18 @@
 
 #containerHeader {
 	margin-bottom: 40px;
+}
+
+#level {
 	color: white;
 	font-size: 30px;
 	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+#time {
+	color: white;
+	font-size: 20px;
 }
 
 body {

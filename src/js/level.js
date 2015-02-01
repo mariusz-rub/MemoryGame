@@ -32,11 +32,16 @@ APP.level = function (levelNumber) {
 				}
 			});
 
+			var levelTimeoutSec = selectCount * runOptions.gameOptions.CELL_SELECTING_TIME;
+
+			runOptions.onLevelStart(APP.timeFactory.fromSeconds(levelTimeoutSec));
+
 			APP.drawing.drawGrid(generatedGrid);
 
 			// todo: block selecting
 
 			setTimeout(function() {
+				runOptions.onSelectingStart();
 
 				APP.drawing.drawGrid(gridToSelect);
 
@@ -44,7 +49,7 @@ APP.level = function (levelNumber) {
 					if(self.isFinished() === false) {
 						runOptions.onLevelFailed(self);
 					}
-				}, runOptions.gameOptions.CELL_SELECTING_TIME * selectCount);
+				}, levelTimeoutSec * 1000);
 
 			}, runOptions.gameOptions.MEMORY_TIME);
 		}
