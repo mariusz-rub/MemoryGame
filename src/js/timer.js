@@ -1,3 +1,5 @@
+"use strict";
+
 var APP = APP || {};
 
 APP.timer = function(startTime, onTimeChanged) {
@@ -6,11 +8,11 @@ APP.timer = function(startTime, onTimeChanged) {
 
 	var isFinished = function(time){
 		return time.getSeconds() === 0 && time.getMinutes() === 0;
-	}
+	};
 
 	return {
-		self: this,
 		start: function() {
+			var self = this;
 			interval = setInterval(function() {
 				if(isFinished(timeLeft)) {
 					self.stop();
@@ -27,4 +29,4 @@ APP.timer = function(startTime, onTimeChanged) {
 			clearInterval(interval);
 		}
 	};
-}
+};

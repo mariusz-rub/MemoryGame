@@ -1,3 +1,5 @@
+"use strict";
+
 var APP = APP || {};
 
 APP.time = function(minutes, seconds) {
@@ -8,7 +10,7 @@ APP.time = function(minutes, seconds) {
 		getMinutes : function() { return min; },
 		getSeconds : function() { return sec; },
 		substractSecond : function() {
-			if(sec == 0) {
+			if(sec === 0) {
 				if(min > 0) {
 					min = min - 1;
 					sec = 59;
@@ -19,8 +21,8 @@ APP.time = function(minutes, seconds) {
 	
 			return this;
 		}
-	}
-}
+	};
+};
 
 APP.timeFactory = function() {
 	return {
@@ -30,5 +32,5 @@ APP.timeFactory = function() {
 
 			return APP.time(min, sec);
 		}
-	}
+	};
 }();

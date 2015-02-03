@@ -1,10 +1,12 @@
+"use strict";
+
 var APP = APP || {};
 
 APP.level = function (levelNumber) {
 
 	var linearFunc = function(x, offside) {
 		return 3 + Math.floor((x + offside) / 3);
-	}
+	};
 
 	var gridWidth = linearFunc(levelNumber, -1);
 	var gridHeight = linearFunc(levelNumber, 1);
@@ -23,7 +25,7 @@ APP.level = function (levelNumber) {
 			var generatedGrid = APP.gridFactory.generateSelectedGrid(gridWidth, gridHeight, selectCount);
 			
 			var gridToSelect = APP.grid(gridWidth, gridHeight, function(point, isSelected) {
-				if(generatedGrid.isSelected(point) === false) {
+				if(isSelected === false) {
 					clearTimeout(levelTimeout);
 					runOptions.onLevelFailed(self);
 				}
@@ -54,5 +56,5 @@ APP.level = function (levelNumber) {
 			}, runOptions.gameOptions.MEMORY_TIME);
 		}
 	};
-}
+};
 

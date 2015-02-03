@@ -1,3 +1,5 @@
+"use strict";
+
 var APP = APP || {};
 
 APP.point = function (x, y) {
@@ -7,7 +9,7 @@ APP.point = function (x, y) {
 		isEqualTo : function(otherPoint) {
 			return otherPoint.X === this.X && otherPoint.Y == this.Y;
 		}
-	}
+	};
 };
 
 APP.grid = function (x, y, onSelectCellFunc) {
@@ -23,7 +25,7 @@ APP.grid = function (x, y, onSelectCellFunc) {
 
 	var isFunction = function(func) {
 		return typeof func === typeof Function;
-	}
+	};
 
 	return {
 		getX : function getX () {

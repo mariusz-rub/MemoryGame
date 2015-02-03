@@ -1,17 +1,19 @@
+"use strict";
+
 var APP = APP || {};
 
 APP.drawing = function () {
 	var CELL_EDGE = 60;
 	
 	var createCell = function createCell (isSelected, onSelect) {
-		var $cell = $('<div></div>');
-		$cell.addClass(isSelected ? 'selectedCell' : 'cell');
+		var $cell = $("<div></div>");
+		$cell.addClass(isSelected ? "selectedCell" : "cell");
 		$cell.width(CELL_EDGE);
 		$cell.height(CELL_EDGE);
 
 		$cell.click(function () {
-			var wasSelected = $(this).attr('class') === 'selectedCell';
-			$(this).attr('class', wasSelected ? 'cell' : 'selectedCell');
+			var wasSelected = $(this).attr("class") === "selectedCell";
+			$(this).attr("class", wasSelected ? "cell" : "selectedCell");
 			onSelect(!wasSelected);
 		});
 
@@ -22,11 +24,11 @@ APP.drawing = function () {
 		return function (select) { 
 			grid.select(point, select); 
 		};
-	}
+	};
 
 	return {
 		drawGrid : function drawGrid (grid) {
-			var $container = $('#container');
+			var $container = $("#container");
 
 			$container.empty();
 			
@@ -48,7 +50,7 @@ APP.drawing = function () {
 			}
 		},
 		clear : function() {
-			$('#container').empty();
+			$("#container").empty();
 		}
 	};
 }();

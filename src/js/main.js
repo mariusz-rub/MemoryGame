@@ -1,3 +1,5 @@
+"use strict";
+
 var APP = APP || {};
 
 APP.gameOptions = {
@@ -8,26 +10,26 @@ APP.gameOptions = {
 APP.setTimer = function(timeLeft) {
 	$("#timeLeft").text(timeLeft.getMinutes() + ":" + timeLeft.getSeconds());
 	
-	if($("#time").is(":visible") == false) {
+	if($("#time").is(":visible") === false) {
 		$("#time").show();	
 	}
-}
+};
 
 APP.levelStart = function(levelTimeout) {
 	APP.setTimer(levelTimeout);
 	APP.currentTimer = APP.timer(levelTimeout, APP.setTimer);
-}
+};
 
 APP.currentTimer = null;
 
 APP.stopTimer = function() {
 	APP.currentTimer.stop();
 	APP.setTimer(APP.time(0, 0));
-}
+};
 
 APP.selectingStart = function() {
 	APP.currentTimer.start();
-}
+};
 
 APP.levelSuccess = function(finishedLevel) {
 	// show success
@@ -38,7 +40,7 @@ APP.levelSuccess = function(finishedLevel) {
 	setTimeout(function() {
 		APP.runLevel(finishedLevel.getLevelNumber() + 1);
 	}, 100);
-}
+};
 
 APP.levelFailed = function(finishedLevel) {
 	// show failed
@@ -46,12 +48,12 @@ APP.levelFailed = function(finishedLevel) {
 	APP.stopTimer();
 
 	$(".startAgainPanel").show();
-}
+};
 
 APP.setLevel = function(levelNumber) {
-	$('#levelNumber').text(levelNumber);
-	$('#containerHeader').show();
-}
+	$("#levelNumber").text(levelNumber);
+	$("#containerHeader").show();
+};
 
 APP.runLevel = function(levelNumber) {
 	APP.setLevel(levelNumber);
@@ -63,7 +65,7 @@ APP.runLevel = function(levelNumber) {
 		onLevelFailed : APP.levelFailed,
 		gameOptions: APP.gameOptions
 	});
-}
+};
 
 $(function(){
 	$("#start").click(function () {
