@@ -3,7 +3,8 @@
 }
 
 #containerHeader {
-	margin-bottom: 40px;
+	margin-top: 100px;
+	margin-bottom: 30px;
 }
 
 #level {
@@ -37,6 +38,11 @@ body {
 	background-size: 100% 100%;
 	background-repeat: none;
 }
+
+p {
+	color: white;
+	font-size: 20px;
+}
  
 .mainPanel {
 	margin-top: 20px;
@@ -49,10 +55,11 @@ body {
 
 .startPanel {
 	margin-top: 150px;
+	width: 350px;
 }
 
 .startAgainPanel {
-	margin-top: 50px;
+	margin-top: 30px;
 }
 
 .cell {

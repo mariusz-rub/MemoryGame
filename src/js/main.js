@@ -7,8 +7,17 @@ APP.gameOptions = {
 	CELL_SELECTING_TIME: 1 //sec
 };
 
+APP.formatNum = function(number) {
+	var numStr = number.toString();
+	if(numStr.length < 2) {
+		numStr = "0" + numStr;
+	}
+
+	return numStr;
+};
+
 APP.setTimer = function(timeLeft) {
-	$("#timeLeft").text(timeLeft.getMinutes() + ":" + timeLeft.getSeconds());
+	$("#timeLeft").text(APP.formatNum(timeLeft.getMinutes()) + ":" + APP.formatNum(timeLeft.getSeconds()));
 	
 	if($("#time").is(":visible") === false) {
 		$("#time").show();	
@@ -69,7 +78,7 @@ APP.runLevel = function(levelNumber) {
 
 $(function(){
 	$("#start").click(function () {
-		$("#start").hide();
+		$(".startPanel").hide();
 		APP.runLevel(1);
 	});
 

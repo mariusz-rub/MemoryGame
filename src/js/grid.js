@@ -57,7 +57,7 @@ APP.grid = function (x, y, onSelectCellFunc) {
 			_cells[point.X][point.Y] = selectPoint ? 1 : 0;
 			
 			if(isFunction(onSelectCellFunc)){
-				onSelectCellFunc(point, selectPoint);
+				onSelectCellFunc(point);
 			}
 
 			return this;

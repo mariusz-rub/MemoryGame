@@ -24,8 +24,8 @@ APP.level = function (levelNumber) {
 
 			var generatedGrid = APP.gridFactory.generateSelectedGrid(gridWidth, gridHeight, selectCount);
 			
-			var gridToSelect = APP.grid(gridWidth, gridHeight, function(point, isSelected) {
-				if(isSelected === false) {
+			var gridToSelect = APP.grid(gridWidth, gridHeight, function(point) {
+				if(generatedGrid.isSelected(point) === false) {
 					clearTimeout(levelTimeout);
 					runOptions.onLevelFailed(self);
 				}
