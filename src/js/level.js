@@ -27,6 +27,7 @@ APP.level = function (levelNumber) {
 			var gridToSelect = APP.grid(gridWidth, gridHeight, function(point) {
 				if(generatedGrid.isSelected(point) === false) {
 					clearTimeout(levelTimeout);
+					APP.drawing.blockCurrentGrid();
 					runOptions.onLevelFailed(self);
 				}
 
@@ -40,17 +41,18 @@ APP.level = function (levelNumber) {
 
 			runOptions.onLevelStart(APP.timeFactory.fromSeconds(levelTimeoutSec));
 
-			APP.drawing.drawGrid(generatedGrid);
-
-			// todo: block selecting
+			APP.drawing.drawGrid(generatedGrid, false);
 
 			setTimeout(function() {
 				runOptions.onSelectingStart();
 
-				APP.drawing.drawGrid(gridToSelect);
+				APP.drawing.drawGrid(gridToSelect, true);
 
 				levelTimeout = setTimeout(
-					function() { runOptions.onLevelFailed(self); }, 
+					function() {
+						APP.drawing.blockCurrentGrid(); 
+						runOptions.onLevelFailed(self); 
+					}, 
 					levelTimeoutSec * 1000);
 
 			}, runOptions.gameOptions.MEMORY_TIME);
