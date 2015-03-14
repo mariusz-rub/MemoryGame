@@ -1,0 +1,14 @@
+{
+  "name": "memoryGame",
+  "version": "1.0.0",
+  "main": "src/index.html",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mariuszrubin/MemoryGame.git"
+  },
+  "homepage": "https://github.com/mariuszrubin/MemoryGame",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.11.0"
+  }
+}
