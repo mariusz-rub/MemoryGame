@@ -4,7 +4,8 @@ var APP = APP || {};
 
 APP.gameOptions = {
 	MEMORY_TIME: 3000, //ms
-	CELL_SELECTING_TIME: 1 //sec
+	CELL_SELECTING_TIME: 1, //sec
+	START_AGAIN_TIMEOUT: 2000 //ms
 };
 
 APP.formatNum = function(number) {
@@ -41,9 +42,6 @@ APP.selectingStart = function() {
 };
 
 APP.levelSuccess = function(finishedLevel) {
-	// show success
-	//alert("success");
-
 	APP.stopTimer();
 
 	setTimeout(function() {
@@ -51,12 +49,16 @@ APP.levelSuccess = function(finishedLevel) {
 	}, 100);
 };
 
-APP.levelFailed = function(finishedLevel) {
-	// show failed
-	// show summary with congratulation achived level and start again button
+APP.levelFailed = function() {
 	APP.stopTimer();
 
-	$(".startAgainPanel").show();
+	setTimeout(function(){
+		$(".startAgainPanel").show();
+	}, APP.gameOptions.START_AGAIN_TIMEOUT);	
+
+	$("body").jGravity({
+		target: "div.cell, div.selectedCell"
+	});
 };
 
 APP.setLevel = function(levelNumber) {

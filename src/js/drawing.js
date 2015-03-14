@@ -34,9 +34,6 @@ APP.drawing = function () {
 
 			$container.empty();
 			
-			$container.width(CELL_EDGE * grid.getX());
-			$container.height(CELL_EDGE * grid.getY());
-			
 			for(var rowNumber=0; rowNumber < grid.getY(); rowNumber++){
 				var row = $("<div></div>");
 				row.addClass("row");
