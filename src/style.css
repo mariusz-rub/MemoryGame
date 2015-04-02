@@ -1,5 +1,6 @@
 #container {
 	display: table;
+	empty-cells: show;
 }
 
 #containerHeader {
