@@ -59,6 +59,9 @@ APP.levelFailed = function() {
 	$("body").jGravity({
 		target: "div.cell, div.selectedCell"
 	});
+
+	// hack: is needed to trigger jgravity
+	$("body").mousemove();
 };
 
 APP.setLevel = function(levelNumber) {
